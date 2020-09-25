@@ -7,11 +7,12 @@ import javax.persistence.*;
 public class Car {
 
     @Id
+    @Column
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
+    private String model;
 
     @Column
     private int series;
@@ -19,13 +20,12 @@ public class Car {
 
 
     @OneToOne(mappedBy = "car")
-   // @JoinColumn (name = "fk",referencedColumnName = "user_id")
     private User user;
 
     public Car(){}
 
     public Car (String name, int series){
-        this.name = name;
+        this.model = name;
         this.series = series;
     }
 
@@ -37,12 +37,12 @@ public class Car {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModel(String name) {
+        this.model = name;
     }
 
     public int getSeries() {
@@ -51,5 +51,13 @@ public class Car {
 
     public void setSeries(int series) {
         this.series = series;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
