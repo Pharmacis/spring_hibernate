@@ -30,7 +30,7 @@ public class MainApp {
          System.out.println("Car = " + user.getCar().getModel ());
          System.out.println();
       }
-
+      System.out.println (userService.getUserByCar ( 4L,546).toString ());
       context.close();
    }
 }
